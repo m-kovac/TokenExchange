@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using IdentityServer4;
-using IdentityServer4.Models;
-using IdentityServer4.Test;
+using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
+using Duende.IdentityServer.Test;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using Rsk.TokenExchange.IdentityServer4;
+using Rsk.TokenExchange.DuendeIdentityServer;
 
 namespace Rsk.TokenExchange.Tests.Integration
 {
