@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Duende.IdentityServer" Version="7.0.8" />
         <PackageReference Include="FluentAssertions" Version="5.10.3" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.15" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />        
@@ -15,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Rsk.TokenExchange.IdentityServer4\Rsk.TokenExchange.IdentityServer4.csproj" />
+      <ProjectReference Include="..\..\src\Rsk.TokenExchange.DuendeIdentityServer\Rsk.TokenExchange.DuendeIdentityServer.csproj" />
       <ProjectReference Include="..\..\src\Rsk.TokenExchange\Rsk.TokenExchange.csproj" />
     </ItemGroup>
 
