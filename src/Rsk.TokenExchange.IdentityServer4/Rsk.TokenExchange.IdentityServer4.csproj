@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Authors>Rock Solid Knowledge Ltd</Authors>
         <Description>Token Exchange (RFC 8693) implementation for IdentityServer4.</Description>
         <PackageProjectUrl>https://github.com/RockSolidKnowledge/TokenExchange</PackageProjectUrl>
