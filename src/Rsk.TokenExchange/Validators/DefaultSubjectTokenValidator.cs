@@ -28,21 +28,34 @@ namespace Rsk.TokenExchange.Validators
         {
             if (string.IsNullOrWhiteSpace(token)) throw new ArgumentNullException(nameof(token));
             if (string.IsNullOrWhiteSpace(tokenType)) throw new ArgumentNullException(nameof(tokenType));
-
-            if (tokenType != TokenExchangeConstants.TokenTypes.AccessToken)
+            TokenValidationResult validationResult;
+            // Write more elegant
+            switch (tokenType)
             {
-                logger.LogError($"Received unsupported token type of {tokenType}");
-                return SubjectTokenValidationResult.Failure();
+                case TokenExchangeConstants.TokenTypes.AccessToken:
+                    validationResult = await tokenValidator.ValidateAccessToken(token);
+                    if (validationResult.IsError)
+                    {
+                        logger.LogError("Received invalid token");
+                        return SubjectTokenValidationResult.Failure();
+                    }
+                    break;
+                case TokenExchangeConstants.TokenTypes.RefreshToken:
+                    validationResult = await tokenValidator.ValidateRefreshToken(token);
+                    if (validationResult.IsError)
+                    {
+                        logger.LogError("Received invalid token");
+                        return SubjectTokenValidationResult.Failure();
+                    }
+                    break;
+                default:
+                    logger.LogError($"Received unsupported token type of {tokenType}");
+                    return SubjectTokenValidationResult.Failure();
             }
 
-            var result = await tokenValidator.ValidateAccessToken(token);
-            if (result.IsError)
-            {
-                logger.LogError("Received invalid token");
-                return SubjectTokenValidationResult.Failure();
-            }
 
-            return SubjectTokenValidationResult.Success(result.Claims);
+
+            return SubjectTokenValidationResult.Success(validationResult.Claims);
         }
     }
 }
