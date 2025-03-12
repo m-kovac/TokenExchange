@@ -42,7 +42,7 @@ namespace Rsk.TokenExchange
                 throw new InvalidRequestException();
             
             Resource = request[TokenExchangeConstants.RequestParameters.Resource];
-            Audience = request[TokenExchangeConstants.RequestParameters.Audience];
+            Audience = request["client_id"];
             Scope = request[TokenExchangeConstants.RequestParameters.Scope]?.Split(' ').ToList();
 
             RequestedTokenType = request[TokenExchangeConstants.RequestParameters.RequestedTokenType];
