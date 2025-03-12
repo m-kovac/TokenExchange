@@ -27,5 +27,13 @@ namespace Rsk.TokenExchange.DuendeIdentityServer
             var result = await tokenValidator.ValidateAccessTokenAsync(token);
             return new TokenValidationResult(result.IsError, result.Claims);
         }
+
+
+        /// <inheritdoc />
+        public async Task<TokenValidationResult> ValidateRefreshToken(string token)
+        {
+            // temporary return all tokens as valid
+            return await Task.Run(() => new TokenValidationResult(true));
+        }
     }
 }

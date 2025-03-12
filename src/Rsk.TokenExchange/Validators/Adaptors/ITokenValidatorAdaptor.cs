@@ -13,6 +13,13 @@ namespace Rsk.TokenExchange.Validators.Adaptors
         /// Calls into IdentityServer's ITokenValidator.ValidateAccessTokenAsync.
         /// </summary>
         Task<TokenValidationResult> ValidateAccessToken(string token);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        Task<TokenValidationResult> ValidateRefreshToken(string token);
     }
 
     /// <summary>
